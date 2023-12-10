@@ -47,7 +47,6 @@ export type ShopifyProduct = {
   title: string;
 };
 
-
 export type SingleProductPageProps = {
   params: {
     id: string;
