@@ -49,3 +49,11 @@ export const getProductQuery = gql`
     }
   }
 `;
+
+export const getShopDetailsQuery = gql`
+  query getShopDetails {
+    shop {
+      name
+    }
+  }
+`;

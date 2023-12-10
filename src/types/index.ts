@@ -14,6 +14,15 @@ export type getProduct_GQL_Response = {
   extensions: ShopifyExtension;
 };
 
+export type getShopDetails_GQL_Response = {
+  data: {
+    shop: {
+      name: string;
+    };
+  };
+  extensions: ShopifyExtension;
+};
+
 export type ShopifyExtension = {
   cost: {
     actualQueryCost: number;
