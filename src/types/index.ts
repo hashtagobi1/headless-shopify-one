@@ -1,10 +1,17 @@
-export type GraphQLResponse = {
+export type getProducts_GQL_Response = {
   data: {
     products: {
       nodes: ShopifyProduct[];
     };
     extensions: ShopifyExtension;
   };
+};
+
+export type getProduct_GQL_Response = {
+  data: {
+    product: ShopifyProduct;
+  };
+  extensions: ShopifyExtension;
 };
 
 export type ShopifyExtension = {
@@ -38,4 +45,11 @@ export type ShopifyProduct = {
   };
   tags: string[];
   title: string;
+};
+
+
+export type SingleProductPageProps = {
+  params: {
+    id: string;
+  };
 };

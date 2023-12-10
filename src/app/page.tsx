@@ -1,11 +1,11 @@
 import { getProductsQuery } from "@/queries/get";
-import { GraphQLResponse } from "@/types";
+import { getProducts_GQL_Response } from "@/types";
 import { formatPrice } from "@/utils/formatPrice";
 import { gql } from "@/utils/gql";
 import Image from "next/image";
 import Link from "next/link";
 
-const getProducts = async (): Promise<GraphQLResponse> => {
+const getProducts = async (): Promise<getProducts_GQL_Response> => {
   const res = await fetch(process.env.GRAPHQL_API_URL!, {
     method: "POST",
     headers: {
@@ -46,7 +46,7 @@ const HomePage = async () => {
                 <div>
                   <Image
                     src={product.featuredImage.url}
-                    alt={product.featuredImage.altText}
+                    alt={`${product.featuredImage.altText}?? a picture of a ${product.title}}`}
                     width={product.featuredImage.width}
                     height={product.featuredImage.height}
                     className="h-96 w-full object-cover"

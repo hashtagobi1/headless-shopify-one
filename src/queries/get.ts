@@ -26,3 +26,11 @@ export const getProductsQuery = gql`
     }
   }
 `;
+export const getProductQuery = gql`
+  query SingleProductQuery($id: ID!) {
+    product(id: $id) {
+      id
+      title
+    }
+  }
+`;
