@@ -1,17 +1,18 @@
+"use client";
+
 import { RoundedProps } from "@/types";
 import React, { useEffect, useRef } from "react";
 import Magnetic from "./Magnetic";
 import gsap from "gsap";
 
 const Rounded = ({
-  children,
-  attributes,
   backgroundColor = "#455CE9",
-}: RoundedProps) => {
+  children,
+  ...rest
+}: RoundedProps): React.JSX.Element => {
   const circle = useRef<HTMLDivElement>(null);
   let timeline: React.MutableRefObject<any> = useRef(null);
   let timeoutID: NodeJS.Timeout | null = null;
-  console.log({ attributes });
 
   useEffect(() => {
     // ? timeline = container for tweens + other timelines
@@ -37,7 +38,7 @@ const Rounded = ({
     timeline.current.tweenFromTo("enter", "exit");
   };
   const manageMouseLeave = () => {
-    timeoutID = setTimeout(() => { 
+    timeoutID = setTimeout(() => {
       // ? play - begins playing forward
       timeline.current.play();
     }, 300);
@@ -46,7 +47,7 @@ const Rounded = ({
   return (
     <Magnetic>
       <div
-        {...attributes}
+        {...rest}
         className="overflow-hidden rounded-full border border-gray-300 cursor-pointer relative flex items-center justify-center px-14 py-4"
         onMouseEnter={() => {
           manageMouseEnter();

@@ -63,7 +63,7 @@ export type SingleProductPageProps = {
     id: string;
   };
 };
-export type MagneticButtonProps = { children: ReactNode;  };
+export type MagneticButtonProps = { children: ReactNode };
 
 export interface RoundedProps {
   children?: ReactNode;

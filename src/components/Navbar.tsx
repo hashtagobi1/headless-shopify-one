@@ -10,12 +10,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 
-const Navbar = async () => {
+const Navbar = () => {
   const header = useRef(null);
   const button = useRef(null);
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
   // const json = await getShopDetails();
+  console.log({ isActive });
 
   useEffect(() => {
     // * good check to initialize variable
@@ -38,7 +39,7 @@ const Navbar = async () => {
         },
         onEnterBack: () => {
           gsap.to(button.current, {
-            scale: 1,
+            scale: 0,
             duration: 0.25,
             ease: "power1.out",
           });
@@ -92,7 +93,12 @@ const Navbar = async () => {
           </Rounded>
         </button>
         {/* // ?  components to animate out when they're removed from the React tree */}
-        <AnimatePresence mode="wait">
+        <AnimatePresence
+          onExitComplete={() =>
+            console.log({ EXITED: `Not on Screen: ${isActive}!` })
+          }
+          mode="wait"
+        >
           {isActive && <MobileNav />}
         </AnimatePresence>
       </div>

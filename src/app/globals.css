@@ -57,17 +57,17 @@ h6 {
   height: 150%;
 }
 
+.radius50 {
+  border-radius: 50%;
+}
+
 .burgerActive {
   @apply after:transition-transform after:rotate-45 after:-top-[1px] before:transition-transform before:-rotate-45 before:-top-0;
 }
 
 .burger {
-  @apply w-full relative z-10 after:content-['']  after:block after:h-[1px] after:w-1/4 after:m-auto after:bg-white after:relative after:transition-transform after:duration-300
+  @apply radius50 w-full relative z-10 after:content-['']  after:block after:h-[1px] after:w-1/4 after:m-auto after:bg-white after:relative after:transition-transform after:duration-300
   before:content-['']  before:block before:h-[1px] before:w-1/4 before:m-auto before:bg-white before:relative before:transition-transform before:duration-300
   after:-top-1
   before:top-1;
-}
-
-.radius50{
-  border-radius: 50%;
 }
