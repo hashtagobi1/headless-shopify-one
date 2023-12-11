@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type getProducts_GQL_Response = {
   data: {
     products: {
@@ -61,3 +63,10 @@ export type SingleProductPageProps = {
     id: string;
   };
 };
+export type MagneticButtonProps = { children: ReactNode;  };
+
+export interface RoundedProps {
+  children?: ReactNode;
+  backgroundColor?: string;
+  [x: string]: any;
+}

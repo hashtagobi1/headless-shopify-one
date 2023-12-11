@@ -1,4 +1,4 @@
-import { getProductsQuery } from "@/queries/get";
+import { getProductsQuery } from "@/getQueries/queries";
 import { getProducts_GQL_Response } from "@/types";
 import { formatPrice } from "@/utils/formatPrice";
 import { gql } from "@/utils/gql";

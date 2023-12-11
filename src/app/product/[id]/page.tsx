@@ -1,4 +1,4 @@
-import { getProductQuery } from "@/queries/get";
+import { getProductQuery } from "@/getQueries/queries";
 import { SingleProductPageProps, getProduct_GQL_Response } from "@/types";
 import { formatPrice } from "@/utils/formatPrice";
 import Image from "next/image";
