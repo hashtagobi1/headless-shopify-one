@@ -61,6 +61,7 @@ h6 {
   border-radius: 50%;
 }
 
+
 /* .burgerActive {
   @apply after:transition-transform after:rotate-45 after:-top-[1px] before:transition-transform before:-rotate-45 before:-top-0;
 }
@@ -106,6 +107,10 @@ h6 {
   transition: transform 0.3s;
 }
 
+.top80 {
+  top: 80%;
+}
+
 .burger::after {
   top: -5px;
 }
@@ -135,11 +140,8 @@ h6 {
   border-radius: 3em;
   border: 1px solid rgb(136, 136, 136);
   cursor: pointer;
-  z-index: 99;
+  position: relative;
   display: flex;
-  width: 20%;
-  height: 5%;
-  max-width: 20%;
   align-items: center;
   justify-content: center;
   padding: 15px 60px;
@@ -152,5 +154,5 @@ h6 {
 }
 
 .roundedButton:hover p {
-  color: red;
+  color: white;
 }

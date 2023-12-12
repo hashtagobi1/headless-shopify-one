@@ -14,7 +14,6 @@ const Rounded = ({
   const circle = useRef<HTMLDivElement>(null);
   let timeline: React.MutableRefObject<any> = useRef(null);
   let timeoutID: NodeJS.Timeout | null = null;
-  console.log({ ...rest });
 
   useEffect(() => {
     // ? timeline = container for tweens + other timelines
@@ -65,7 +64,7 @@ const Rounded = ({
         </div> */}
         <div
           ref={circle}
-          className={`bg-[${backgroundColor}] bg-red-900 w-full radius50 absolute height150 top-full`}
+          className={` bg-black  w-full radius50 absolute height150 top-full`}
         ></div>
       </div>
     </Magnetic>

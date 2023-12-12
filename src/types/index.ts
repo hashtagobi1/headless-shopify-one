@@ -8,6 +8,14 @@ export type getProducts_GQL_Response = {
     extensions: ShopifyExtension;
   };
 };
+export type getAllProducts_GQL_Response = {
+  data: {
+    products: {
+      nodes: ShopifyProduct[];
+    };
+    extensions: ShopifyExtension;
+  };
+};
 
 export type getProduct_GQL_Response = {
   data: {
@@ -64,6 +72,7 @@ export type SingleProductPageProps = {
   };
 };
 export type MagneticButtonProps = { children: ReactNode };
+export type RootLayoutProps = { children: ReactNode };
 
 export interface RoundedProps {
   children?: ReactNode;

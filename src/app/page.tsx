@@ -1,5 +1,7 @@
+import Description from "@/components/Description";
+import SlidingImages from "@/components/SlidingImages";
 import { getProductsQuery } from "@/getQueries/queries";
-import { getProducts_GQL_Response } from "@/types";
+import { getAllProducts_GQL_Response, getProducts_GQL_Response } from "@/types";
 import { formatPrice } from "@/utils/formatPrice";
 import { gql } from "@/utils/gql";
 import Image from "next/image";
@@ -27,12 +29,36 @@ const getProducts = async (): Promise<getProducts_GQL_Response> => {
 
   return res.json();
 };
+const getAllProducts = async (): Promise<getAllProducts_GQL_Response> => {
+  const res = await fetch(process.env.GRAPHQL_API_URL!, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Shopify-Access-Token": process.env.ADMIN_API_ACCESS_TOKEN!,
+    },
+    body: JSON.stringify({
+      query: getProductsQuery,
+    }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`
+    Failed to fetch data
+    Status Code: ${res.status}
+    Response: ${text}`);
+  }
+
+  return res.json();
+};
 
 const HomePage = async () => {
   const products = await getProducts();
+  const { data } = await getAllProducts();
+
   return (
-    <main className="container mx-auto">
-      <div className="px-5">
+    <main className="">
+      <div className="px-5 max-w-7xl mx-auto">
         <h2 className="font-bold text-2xl mb-3">Our Products:</h2>
         <ul className="grid grid-cols-12 gap-4 pb-12">
           {products.data.products.nodes.map((product) => {
@@ -86,6 +112,8 @@ const HomePage = async () => {
           })}
         </ul>
       </div>
+      <Description />
+      <SlidingImages data={data} />
     </main>
   );
 };

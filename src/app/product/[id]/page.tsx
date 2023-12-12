@@ -38,7 +38,7 @@ const SinglularProduct = async ({ params }: SingleProductPageProps) => {
   console.log({ params });
   console.log({ product });
   return (
-    <div className="container mx-auto md:pb-10">
+    <div className=" mx-auto md:pb-10">
       <div className="flex flex-col md:flex-row md:items-center">
         <div className="md:basis-1/2">
           <Image

@@ -26,6 +26,33 @@ export const getProductsQuery = gql`
     }
   }
 `;
+
+export const getAllProducts = gql`
+  query getAllProducts {
+    products(first: 40) {
+      nodes {
+        description
+        featuredImage {
+          altText
+          height
+          id
+          url
+          width
+        }
+        handle
+        id
+        priceRangeV2 {
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+        }
+        tags
+        title
+      }
+    }
+  }
+`;
 export const getProductQuery = gql`
   query SingleProductQuery($id: ID!) {
     product(id: $id) {
