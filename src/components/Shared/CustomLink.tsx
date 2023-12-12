@@ -29,9 +29,9 @@ const CustomLink = ({ data, isActive, setSelectedIndicator }: LinkProps) => {
       <motion.div
         variants={scale}
         animate={isActive ? "open" : "closed"}
-        className="w-2 h-2 bg-white rounded-full absolute -left-8"
+        className="w-2 h-2  bg-white rounded-full absolute -left-8"
       ></motion.div>
-      <Link href={href} passHref>
+      <Link className="mb-4" href={href} passHref>
         {title}
       </Link>
     </motion.div>

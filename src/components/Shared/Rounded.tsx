@@ -4,15 +4,17 @@ import { RoundedProps } from "@/types";
 import React, { useEffect, useRef } from "react";
 import Magnetic from "./Magnetic";
 import gsap from "gsap";
-
+import { Bars4Icon } from "@heroicons/react/20/solid";
 const Rounded = ({
   backgroundColor = "#455CE9",
   children,
+  active,
   ...rest
 }: RoundedProps): React.JSX.Element => {
   const circle = useRef<HTMLDivElement>(null);
   let timeline: React.MutableRefObject<any> = useRef(null);
   let timeoutID: NodeJS.Timeout | null = null;
+  console.log({ ...rest });
 
   useEffect(() => {
     // ? timeline = container for tweens + other timelines
@@ -48,7 +50,8 @@ const Rounded = ({
     <Magnetic>
       <div
         {...rest}
-        className="overflow-hidden rounded-full border border-gray-300 cursor-pointer relative flex items-center justify-center px-14 py-4"
+        style={{ overflow: "hidden" }}
+        className="roundedButton"
         onMouseEnter={() => {
           manageMouseEnter();
         }}
@@ -57,9 +60,12 @@ const Rounded = ({
         }}
       >
         {children}
+        {/* <div ref={circle}>
+          <Bars4Icon className="" width={20} height={20} />
+        </div> */}
         <div
           ref={circle}
-          className={`bg-[${backgroundColor}] w-full radius50 absolute height150 top-full`}
+          className={`bg-[${backgroundColor}] bg-red-900 w-full radius50 absolute height150 top-full`}
         ></div>
       </div>
     </Magnetic>

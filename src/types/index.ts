@@ -69,4 +69,5 @@ export interface RoundedProps {
   children?: ReactNode;
   backgroundColor?: string;
   [x: string]: any;
+  active?: boolean;
 }

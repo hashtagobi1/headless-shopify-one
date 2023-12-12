@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { menuSlide } from "../../animations/menuSlide";
 import CustomLink from "./CustomLink";
 import NavFooter from "./NavFooter";
 import Curve from "./Curve";
+import Rounded from "./Rounded";
 type Props = {};
 
 const navItems = [
@@ -27,8 +28,11 @@ const navItems = [
     href: "/contact",
   },
 ];
-
-const MobileNav = () => {
+type MobileNavProps = {
+  isActive: boolean;
+  setIsActive: Dispatch<SetStateAction<boolean>>;
+};
+const MobileNav = ({ isActive, setIsActive }: MobileNavProps) => {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
@@ -38,17 +42,31 @@ const MobileNav = () => {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="h-screen bg-slate-700 fixed right-0 top-0 text-white z-10"
+      className="h-screen bg-slate-700 fixed right-0 top-0 text-white z-[1]"
     >
       <div className="box-border h-full p-24 flex flex-col justify-between">
+        {isActive && (
+          <Rounded
+            onClick={() => {
+              setIsActive(!isActive);
+            }}
+            className="roundedButton"
+            // z-50 m-5 w-20 h-20  bg-[#1c1d20] cursor-pointer flex items-center justify-center"
+            active={isActive}
+          >
+            <div
+              className={`burger p-20 ${isActive ? "burgerActive" : ""}`}
+            ></div>
+          </Rounded>
+        )}
         <div
-          className="flex flex-col text-5xl gap-3 mt-20"
+          className="mobileNav"
           onMouseLeave={() => {
             setSelectedIndicator(pathname);
           }}
         >
           <div className="text-gray-300 border-b border-gray-600 uppercase text-xs  mb-10">
-            <p className="">Navigation</p>
+            <p className="mb-4">Navigation</p>
           </div>
           {navItems.map((data, index) => {
             return (

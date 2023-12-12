@@ -16,13 +16,11 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
   // const json = await getShopDetails();
-  console.log({ isActive });
 
   useEffect(() => {
     // * good check to initialize variable
     if (isActive) setIsActive(false);
   }, [pathname]);
-
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(button.current, {
@@ -54,16 +52,13 @@ const Navbar = () => {
         className="absolute mb- flex z-1 top-0 text-black p-9 justify-between w-full font-light box-border items-center"
       >
         <div className={``}>
-          <div className="p text-6xl font-bold">
-            get the fucking burger menu thingy to render
-          </div>
           {/* <p className={``}>© A Shop By {json.data.shop.name}</p> */}
         </div>
 
         <div className="flex items-center divide-x">
           <Magnetic>
             <div className="flex flex-col items-center relative z-10 p-5 cursor-pointer group ">
-              <a className="">Home</a>
+              <a className="bigDick">Home</a>
               <div className="indicator "></div>
             </div>
           </Magnetic>
@@ -88,8 +83,12 @@ const Navbar = () => {
             onClick={() => {
               setIsActive(!isActive);
             }}
+            className="z-50 m-5 w-20 h-20 radius50 bg-[#1c1d20] cursor-pointer flex items-center absolute justify-center"
+            active={isActive}
           >
-            <div className={`burger ${isActive ? "burgerActive" : ""}`}></div>
+            <div
+              className={`burger p-8 ${isActive ? "burgerActive" : ""}`}
+            ></div>
           </Rounded>
         </button>
         {/* // ?  components to animate out when they're removed from the React tree */}
@@ -99,7 +98,7 @@ const Navbar = () => {
           }
           mode="wait"
         >
-          {isActive && <MobileNav />}
+          {isActive && <MobileNav setIsActive={setIsActive} isActive={isActive} />}
         </AnimatePresence>
       </div>
     </>
