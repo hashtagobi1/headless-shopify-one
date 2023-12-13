@@ -18,10 +18,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <div className="mb-20">
-          <Navbar />
+          {/* <Navbar /> */}
         </div>
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

@@ -16,7 +16,7 @@ const Description = (props: Props) => {
   }, [isInView]);
 
   const phrase =
-    "Helping brands to stand out in the digital era. Together we will set the new status quo. No nonsense, always on the cutting edge.";
+    "We are the intersection of design and engineering.";
 
   return (
     <div ref={description} className="px-48 mt-48 flex justify-center  ">
@@ -45,16 +45,16 @@ const Description = (props: Props) => {
             </span>
           ))}
         </p>
-        <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>
+        {/* <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>
           The combination of my passion for design, code & interaction positions
           me in a unique place in the web design world.
-        </motion.p>
+        </motion.p> */}
         <div data-scroll data-scroll-speed={0.1}>
-          <Rounded className="top80  h-[180px] text-whte radius50 absolute flex items-center justify-center cursor-pointer ">
+          {/* <Rounded className="top80  h-[180px] text-whte radius50 absolute flex items-center justify-center cursor-pointer ">
             <p className="m-0 text-sm text-center font-light relative z-[1]">
               About Me
             </p>
-          </Rounded>
+          </Rounded> */}
         </div>
       </div>
     </div>

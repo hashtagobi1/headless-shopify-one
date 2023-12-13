@@ -66,12 +66,15 @@ const SlidingImages = (allProducts: getAllProducts_GQL_Response) => {
       src: string;
     }[]
   ) => (
-    <motion.div style={{ x }} className="gap-14 flex  relative width-[120vw]">
+    <motion.div
+      style={{ x }}
+      className="gap-14  flex  relative width-[120vw]"
+    >
       {slider.map((project, index) => (
         <div
           key={index}
           style={{ backgroundColor: project.color }}
-          className={`left[-10%] w-full  h-[45vh] flex items-center justify-center`}
+          className={`left[-10%] mb-14   w-full  h-[45vh] flex items-center justify-center`}
         >
           <div className="relative w-5/6 h-5/6">
             <Image
@@ -86,20 +89,17 @@ const SlidingImages = (allProducts: getAllProducts_GQL_Response) => {
     </motion.div>
   );
   return (
-    <div ref={container} className="flex flex-col gap-14 relative mt-52 z-[1]">
-
-        
-      {ImageContainer(x1, slider1)}
-      {ImageContainer(x2, slider2)}
+    <div ref={container} className="flex flex-col gap-14 relative mt-52 z-[2] bg-white">
+      <div className="[&>*:nth-of-type(2)]:mb-0">
+        {ImageContainer(x1, slider1)}
+        {ImageContainer(x2, slider2)}
+      </div>
       {/* {ImageContainer(x2, slider2)} */}
-      <motion.div
-        style={{ height: height.get() * 10 }}
-        className="bg-red-500 relative mt-[100px]"
-      >
+      <motion.div style={{ height }} className="bg-red-500 relative">
         <div
-          className="h-[1550%] w-[120%] left-[-10%]
-        rounded-br-full rounded-bl-full
-        bg-white absolute z-[1] shadow-2xl"
+          className="h-[3060%] w-[120%] left-[-10%]
+        bigCircleRadius
+        bg-white absolute z-[1] "
         ></div>
       </motion.div>
     </div>
