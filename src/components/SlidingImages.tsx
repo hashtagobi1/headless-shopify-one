@@ -66,10 +66,7 @@ const SlidingImages = (allProducts: getAllProducts_GQL_Response) => {
       src: string;
     }[]
   ) => (
-    <motion.div
-      style={{ x }}
-      className="gap-14  flex  relative width-[120vw]"
-    >
+    <motion.div style={{ x }} className="gap-14  flex  relative width-[120vw]">
       {slider.map((project, index) => (
         <div
           key={index}
@@ -89,7 +86,10 @@ const SlidingImages = (allProducts: getAllProducts_GQL_Response) => {
     </motion.div>
   );
   return (
-    <div ref={container} className="flex flex-col gap-14 relative mt-52 z-[2] bg-white">
+    <div
+      ref={container}
+      className="flex flex-col gap-14 md:w-full relative mt-52 z-[2] bg-white"
+    >
       <div className="[&>*:nth-of-type(2)]:mb-0">
         {ImageContainer(x1, slider1)}
         {ImageContainer(x2, slider2)}

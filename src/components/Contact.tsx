@@ -19,10 +19,10 @@ const Contact = () => {
       <div className={"body mb-20"}>
         <div className={"title"}>
           <span className="flex justify-center">
-            <div className={"imageContainer"}>
-              <Image fill={true} alt={"image"} src={`/images/background.jpg`} />
-            </div>
-            <h2>Let's talk</h2>
+            {/* <div className={"imageContainer"}>
+              <Image width={1000} height={1000} alt={"image"} src={`/images/background.jpg`} />
+            </div> */}
+            <h2>Let's talk!</h2>
           </span>
         </div>
         <a
