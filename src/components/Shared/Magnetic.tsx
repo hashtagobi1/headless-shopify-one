@@ -4,8 +4,8 @@ import { MagneticButtonProps } from "@/types";
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
 
-const Magnetic = ({ children }: MagneticButtonProps) => {
-  const magnetic = useRef(null);
+const Magnetic = ({ children }: any) => {
+  const magnetic = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // * gsap.to("element", {properties to go to}), no need to define starting points
